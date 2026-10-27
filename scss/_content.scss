@@ -1,0 +1,47 @@
+@use 'var' as v;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  overflow: hidden;
+  height: 56vh;
+  
+
+  &__background-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: clamp(10px, 25vw, 700px);
+    font-weight: 900;
+    color: v.$color-accent;
+
+    user-select: none;
+    z-index: -1;
+  }
+
+  &__input {
+    color: rgba(v.$color-text-primary, 0.8);
+    font-size: clamp(10px, 2cqw, 96px);
+    font-weight: 900;
+    width: 70%;
+    max-width: 1440px;
+    padding: 30px 40px;
+    background-color: rgba(v.$color-surface, .6);
+    backdrop-filter: blur(10px);
+    border: 1px solid v.$color-border;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+
+  &__info {
+    padding: 30px;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    gap: 3px;
+  }
+}

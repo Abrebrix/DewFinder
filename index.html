@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="header__logo">Dev<span>Finder</span></a>
+    <img class="header__github" src="img/github-light.svg" alt="logo" width="60" height="60">
+  </header>
+  <main class="main">
+    <span class="main__background-text">SEARCH</span>
+    <input type="text" class="main__input" placeholder="Search users">
+    <div class="main__info-block info-block">
+
+      <div class="info-block__grid-first">
+        <div class="info-block__user info-block__username-img">
+          <img data-img src="" alt="profile picture" width="60%" height="60%">
+          <span data-name class="info-block__api-data"></span>
+        </div>
+
+        <div class="info-block__user info-block__link">
+          <span class="info-block__text">Github link</span>
+          <span data-link class="info-block__api-data"></span>
+        </div>
+      </div>
+
+      <div class="info-block__grid-last">
+        <div class="info-block__user info-block__repo">
+          <span class="info-block__api-data" data-repositories></span>
+          <span class="info-block__text">Public repositories</span>
+        </div>
+
+        <div class="info-block__user info-block__subscribers">
+          <span class="info-block__api-data" data-subscribers></span>
+          <span class="info-block__text">subscribers</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <footer>
+
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
