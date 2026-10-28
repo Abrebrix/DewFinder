@@ -2,7 +2,12 @@
 
 .info-block {
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "usr-img usr-img link link link link"
+    "repo repo repo subscribers subscribers subscribers";
+
   gap: 3px;
   padding: 30px;
 
@@ -12,85 +17,140 @@
   backdrop-filter: blur(10px);
 
   width: 70%;
+  height: 100%;
   max-width: 1440px;
-  flex: 1;
+
+  @media(width <= v.$bp1200) {
+    padding: 8px;
+  }
+
+  @media(width <= v.$bp900) {
+    width: 90%;
+    background-color: rgb(v.$color-surface, 0.7);
+
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "usr-img"
+      "link"
+      "repo"
+      "subscribers";
+  }
 
   &__user {
     display: flex;
-    padding: 15px;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 30px;
+
     border: 1px solid v.$color-border;
     border-radius: 30px;
+
     background-color: rgba(v.$black, .7);
+
     container-type: inline-size;
+
+    @media(width <=v.$bp600) {
+      border-radius: 15px;
+    }
   }
 
   &__text {
-    font-size: clamp(10px, 5cqw, 48px);
     font-weight: 800;
+    font-size: 36px;
     color: v.$color-text-primary;
+
+    @media(width <=v.$bp1600) {
+      font-size: 28px;
+    }
+
+    @media(width <=v.$bp1200) {
+      font-size: 24px;
+    }
   }
 
   &__api-data {
     overflow: hidden;
     color: v.$color-accent;
-    text-overflow: ellipsis;
     max-width: 90%;
+    font-size: 32px;
+
+    @media(width <=v.$bp1600) {
+      font-size: 24px;
+    }
   }
 
   &__username-img {
-    flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    grid-area: usr-img;
+
+    img {
+      width: 60%;
+      height: 60%;
+    }
 
     .info-block__api-data {
-      font-size: clamp(10px, 12cqw, 96px);
       font-weight: 500;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
   &__link {
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 30px;
+    grid-area: link;
 
     .info-block__api-data {
-      font-size: clamp(10px, 4.4cqw, 96px);
       font-weight: 500;
+      margin: auto;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 
   &__repo {
     justify-content: space-around;
     align-items: center;
+    grid-area: repo;
 
     .info-block__api-data {
-      font-size: clamp(10px, 20cqw, 200px);
       font-weight: 900;
+      font-size: 96px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @media(width <=v.$bp1600) {
+        font-size: 64px;
+      }
+
+      @media(width <=v.$bp1200) {
+        font-size: 48px;
+      }
     }
   }
 
   &__subscribers {
     justify-content: space-around;
     align-items: center;
+    grid-area: subscribers;
 
     .info-block__api-data {
-      font-size: clamp(10px, 20cqw, 200px);
       font-weight: 900;
-    }
-  }
+      font-size: 96px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
-  &__grid {
-    &-first {
-      display: grid;
-      grid-template-columns: 2fr 5fr;
-      gap: 3px;
-    }
+      @media(width <=v.$bp1600) {
+        font-size: 64px;
+      }
 
-    &-last {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3px;
+      @media(width <=v.$bp1200) {
+        font-size: 48px;
+      }
     }
   }
 }

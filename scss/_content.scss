@@ -1,14 +1,22 @@
 @use 'var' as v;
 
 .main {
+  min-width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   justify-content: center;
-  overflow: hidden;
   height: 56vh;
-  
+
+  @media(width <=v.$bp1200) {
+    justify-content: flex-start;
+  }
+
+  @media(width <=v.$bp600) {
+    height: 67vh;
+  }
+
 
   &__background-text {
     position: absolute;
@@ -22,20 +30,37 @@
 
     user-select: none;
     z-index: -1;
+
+    @media(width <=v.$bp1200) {
+      top: 30%;
+    }
+
+    @media(width <=v.$bp600) {
+      display: none;
+    }
   }
 
   &__input {
-    color: rgba(v.$color-text-primary, 0.8);
-    font-size: clamp(10px, 2cqw, 96px);
-    font-weight: 900;
     width: 70%;
     max-width: 1440px;
-    padding: 30px 40px;
+
     background-color: rgba(v.$color-surface, .6);
     backdrop-filter: blur(10px);
+
     border: 1px solid v.$color-border;
     border-radius: 20px;
+
     margin-bottom: 30px;
+    padding: 30px 40px;
+
+    color: rgba(v.$color-text-primary, 0.8);
+    font-weight: 900;
+    font-size: 48px;
+
+    @media(width <= v.$bp900) {
+      padding: 15px 30px;
+      width: 80%;
+    }
   }
 
   &__info {
