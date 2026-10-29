@@ -1,0 +1,11 @@
+@use 'var' as v;
+
+.footer {
+  display: flex;
+  justify-content: center;
+
+  &__link {
+    color: v.$color-accent;
+    font-size: 24px;
+  }
+}

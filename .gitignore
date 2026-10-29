@@ -1,0 +1,6 @@
+# gigacode
+.gigacode_vsc/
+
+# vs code
+.vscode/
+!.vscode/settings.json

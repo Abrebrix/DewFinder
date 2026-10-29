@@ -9,7 +9,8 @@
     "repo repo repo subscribers subscribers subscribers";
 
   gap: 3px;
-  padding: 30px;
+
+  padding: 20px;
 
   background-color: rgb(v.$color-surface, 0.8);
   border: 1px solid v.$color-border;
@@ -17,16 +18,25 @@
   backdrop-filter: blur(10px);
 
   width: 70%;
-  height: 100%;
+  height: 50vh;
   max-width: 1440px;
 
-  @media(width <= v.$bp1200) {
+  @media(width <=v.$bp1600) {
+    width: 90%;
     padding: 8px;
   }
 
-  @media(width <= v.$bp900) {
-    width: 90%;
+  @media(width <=v.$bp1200) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "usr-img link"
+      "repo subscribers";
+  }
+
+  @media(width <=v.$bp900) {
     background-color: rgb(v.$color-surface, 0.7);
+    height: 65vh;
 
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
@@ -42,7 +52,9 @@
     flex-direction: column;
     justify-content: space-between;
 
-    padding: 30px;
+    min-width: 0;
+    min-height: 0;
+    padding: 12px;
 
     border: 1px solid v.$color-border;
     border-radius: 30px;
@@ -75,10 +87,6 @@
     color: v.$color-accent;
     max-width: 90%;
     font-size: 32px;
-
-    @media(width <=v.$bp1600) {
-      font-size: 24px;
-    }
   }
 
   &__username-img {
@@ -86,8 +94,9 @@
     grid-area: usr-img;
 
     img {
-      width: 60%;
-      height: 60%;
+      margin-block: auto;
+      width: 50%;
+      height: 50%;
     }
 
     .info-block__api-data {
@@ -104,9 +113,14 @@
 
     .info-block__api-data {
       font-weight: 500;
+      font-size: 36px;
       margin: auto;
       text-overflow: ellipsis;
       overflow: hidden;
+
+      @media(width <=v.$bp600) {
+        font-size: 24px;
+      }
     }
   }
 
@@ -117,17 +131,13 @@
 
     .info-block__api-data {
       font-weight: 900;
-      font-size: 96px;
+      font-size: 128px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
 
-      @media(width <=v.$bp1600) {
+      @media(width <=v.$bp600) {
         font-size: 64px;
-      }
-
-      @media(width <=v.$bp1200) {
-        font-size: 48px;
       }
     }
   }
@@ -139,17 +149,13 @@
 
     .info-block__api-data {
       font-weight: 900;
-      font-size: 96px;
+      font-size: 128px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
 
-      @media(width <=v.$bp1600) {
+      @media(width <=v.$bp600) {
         font-size: 64px;
-      }
-
-      @media(width <=v.$bp1200) {
-        font-size: 48px;
       }
     }
   }

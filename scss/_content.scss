@@ -3,20 +3,21 @@
 .main {
   min-width: 320px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
+
   position: relative;
-  justify-content: center;
-  height: 56vh;
+
+  margin-bottom: 15vh;
 
   @media(width <=v.$bp1200) {
     justify-content: flex-start;
   }
 
-  @media(width <=v.$bp600) {
-    height: 67vh;
+  @media(width <=v.$bp900) {
+    margin-bottom: 1vh;
   }
-
 
   &__background-text {
     position: absolute;
@@ -31,11 +32,7 @@
     user-select: none;
     z-index: -1;
 
-    @media(width <=v.$bp1200) {
-      top: 30%;
-    }
-
-    @media(width <=v.$bp600) {
+    @media(width <=v.$bp900) {
       display: none;
     }
   }
@@ -57,9 +54,14 @@
     font-weight: 900;
     font-size: 48px;
 
-    @media(width <= v.$bp900) {
+    @media(width <=v.$bp900) {
       padding: 15px 30px;
       width: 80%;
+    }
+
+    @media(width <=v.$bp600) {
+      font-size: 24px;
+      margin-bottom: 10px;
     }
   }
 
