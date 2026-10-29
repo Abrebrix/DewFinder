@@ -1,5 +1,8 @@
+const blockUsrAvAtar = document.querySelector('.info-block__username-img')
+const avatar = document.createElement('img'); // img
+
 const input = document.querySelector('[data-search]'); // input
-const avatar = document.querySelector('[data-img]'); // img
+const infoBlock = document.querySelector('.info-block');
 const username = document.querySelector('[data-name]'); // usr
 const link = document.querySelector('[data-link]'); // link
 const repos = document.querySelector('[data-repositories]'); // repo
@@ -11,7 +14,9 @@ input.addEventListener('keydown', async (event) => {
       const inputValue = input.value;
       let response = await fetch(`https://api.github.com/users/${inputValue}`);
       if (response.ok) {
-        userData = await response.json();
+        const userData = await response.json();
+
+        blockUsrAvAtar.append(avatar);
 
         input.value = '';
         avatar.src = userData.avatar_url;
@@ -20,7 +25,23 @@ input.addEventListener('keydown', async (event) => {
         link.textContent = userData.html_url;
         repos.textContent = userData.public_repos;
         subscribers.textContent = userData.followers;
+
+        infoBlock.classList.remove("element-hidden");
+
+        infoBlock.classList.remove(
+          'border-animation-true',
+          'border-animation-err'
+        );
+        void infoBlock.offsetWidth;
+        infoBlock.classList.add('border-animation-true');
       } else {
+        infoBlock.classList.remove(
+          'border-animation-true',
+          'border-animation-err'
+        );
+        void infoBlock.offsetWidth;
+        infoBlock.classList.add('border-animation-err');
+
         throw new Error('Пользователь не найден')
       }
     } catch (err) {

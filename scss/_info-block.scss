@@ -86,20 +86,30 @@
     overflow: hidden;
     color: v.$color-accent;
     max-width: 90%;
-    font-size: 32px;
+    font-size: clamp(12px, 8cqw, 32px);
   }
 
   &__username-img {
     align-items: center;
     grid-area: usr-img;
 
+
+    @media (width <=v.$bp900) {
+      flex-direction: row-reverse;
+    }
+
     img {
       margin-block: auto;
-      width: 50%;
-      height: 50%;
+      height: 80%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 5px solid v.$color-accent;
     }
 
     .info-block__api-data {
+      margin-inline: auto;
       font-weight: 500;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -113,14 +123,9 @@
 
     .info-block__api-data {
       font-weight: 500;
-      font-size: 36px;
       margin: auto;
       text-overflow: ellipsis;
       overflow: hidden;
-
-      @media(width <=v.$bp600) {
-        font-size: 24px;
-      }
     }
   }
 
@@ -131,14 +136,10 @@
 
     .info-block__api-data {
       font-weight: 900;
-      font-size: 128px;
+      font-size: clamp(48px, 20cqw, 150px);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-
-      @media(width <=v.$bp600) {
-        font-size: 64px;
-      }
     }
   }
 
@@ -149,14 +150,10 @@
 
     .info-block__api-data {
       font-weight: 900;
-      font-size: 128px;
+      font-size: clamp(48px, 20cqw, 150px);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-
-      @media(width <=v.$bp600) {
-        font-size: 64px;
-      }
     }
   }
 }

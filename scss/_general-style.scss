@@ -1,0 +1,39 @@
+.element-hidden {
+  visibility: hidden;
+}
+
+.border-animation-err {
+  animation: border-glow-err 1.8s ease-in-out;
+}
+
+@keyframes border-glow {
+  0% {
+    border-color: #292929;
+  }
+
+  30% {
+    border-color: #8e0101;
+  }
+
+  100% {
+    border-color: #292929;
+  }
+}
+
+.border-animation-true {
+  animation: border-glow-true 1.8s ease-in-out;
+}
+
+@keyframes border-glow {
+  0% {
+    border-color: #292929;
+  }
+
+  30% {
+    border-color: #08925b;
+  }
+
+  100% {
+    border-color: #292929;
+  }
+}
