@@ -6,7 +6,7 @@
   animation: border-glow-err 1.8s ease-in-out;
 }
 
-@keyframes border-glow {
+@keyframes border-glow-err {
   0% {
     border-color: #292929;
   }
@@ -24,7 +24,7 @@
   animation: border-glow-true 1.8s ease-in-out;
 }
 
-@keyframes border-glow {
+@keyframes border-glow-true {
   0% {
     border-color: #292929;
   }

@@ -9,7 +9,7 @@ const repos = document.querySelector('[data-repositories]'); // repo
 const subscribers = document.querySelector('[data-subscribers]'); // sub
 
 input.addEventListener('keydown', async (event) => {
-  if (event.key == 'Enter' && input.value.length > 0) {
+  if (event.key == 'Enter' && input.value.trim()) {
     try {
       const inputValue = input.value;
       let response = await fetch(`https://api.github.com/users/${inputValue}`);
